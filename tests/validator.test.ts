@@ -4,7 +4,7 @@
 
 import { describe, it, expect, vi } from 'vitest';
 import { ParameterValidator, validateBatch } from '../src/validator';
-import { Video2GifError, Video2GifErrorType } from '../src/types';
+import { Video2GifError } from '../src/types';
 import { ValidationError, FormatError } from '../src/errors';
 import { createMockVideoFile, createMockVideoElement } from './setup';
 

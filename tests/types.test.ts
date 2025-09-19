@@ -5,7 +5,6 @@
 import { describe, it, expect } from 'vitest';
 import {
   Video2GifOptions,
-  Video2GifError,
   Video2GifErrorType,
   Presets,
   DEFAULTS,
