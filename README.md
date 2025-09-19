@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/video2gif.svg)](https://badge.fury.io/js/video2gif)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
+[![Demo](https://img.shields.io/badge/Demo-Live-blue)](https://video2gif-demo.vercel.app)
 
 > Convert videos to GIFs using FFmpeg WASM with a modern, developer-friendly API
 
@@ -20,6 +21,10 @@
 - ♿ **Accessible** - WCAG 2.1 AA compliant with keyboard navigation
 
 ## 🚀 Quick Start
+
+### Try the Demo
+
+Check out the [live demo](https://video2gif-demo.vercel.app) to see Video2GIF in action!
 
 ### Installation
 
