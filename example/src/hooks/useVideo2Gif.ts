@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from 'react';
-import { convertVideoToGifWithResult, Video2GifOptions, Video2GifError } from 'video2gif';
+import { convertVideoToGifWithResult, Video2GifOptions, ErrorUtils } from 'video2gif';
 import { ConversionResult } from '../types';
 
 export function useVideo2Gif() {
@@ -52,7 +52,7 @@ export function useVideo2Gif() {
         statistics: result.statistics
       };
     } catch (error) {
-      if (error instanceof Video2GifError && error.type === 'CANCELLED') {
+      if (ErrorUtils.isVideo2GifError(error) && error.type === 'CANCELLED') {
         throw new Error('Conversion cancelled');
       }
       throw error;
