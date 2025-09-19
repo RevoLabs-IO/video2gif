@@ -1,9 +1,8 @@
-# 🎬 Video2Gif
+# 🎬 Video2GIF
 
 [![npm version](https://badge.fury.io/js/video2gif.svg)](https://badge.fury.io/js/video2gif)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
-[![Build Status](https://github.com/RevoLabs-IO/video2gif/workflows/CI/badge.svg)](https://github.com/RevoLabs-IO/video2gif/actions)
 
 > Convert videos to GIFs using FFmpeg WASM with a modern, developer-friendly API
 
@@ -317,19 +316,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [FFmpeg WASM](https://github.com/ffmpegwasm/ffmpeg.wasm) - For making video processing possible in the browser
 - [Vite](https://vitejs.dev/) - For the amazing build tool
 - [Vitest](https://vitest.dev/) - For the fast testing framework
-
-## 📚 Related Projects
-
-- [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) - The core FFmpeg WASM library
-- [gif.js](https://github.com/jnordberg/gif.js) - JavaScript GIF encoder
-- [video.js](https://videojs.com/) - Video player framework
-
----
-
-## 💬 Support
-
-- 📖 [Documentation](https://github.com/RevoLabs-IO/video2gif/wiki)
-- 🐛 [Issue Tracker](https://github.com/RevoLabs-IO/video2gif/issues)
-- 💬 [Discussions](https://github.com/RevoLabs-IO/video2gif/discussions)
 
 Made with ❤️ by the Video2Gif team
