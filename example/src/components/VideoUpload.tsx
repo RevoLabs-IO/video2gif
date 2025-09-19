@@ -55,9 +55,9 @@ export function VideoUpload({ onFileSelect, onFileRemove, videoFile, disabled }:
     return (
       <Card>
         <CardContent className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
+          <div className="flex justify-between items-center mb-4">
+            <div className="flex gap-3 items-center">
+              <div className="flex justify-center items-center w-12 h-12 rounded-lg bg-primary/20">
                 <Video className="w-6 h-6 text-primary" />
               </div>
               <div>
@@ -77,13 +77,13 @@ export function VideoUpload({ onFileSelect, onFileRemove, videoFile, disabled }:
           </div>
 
           {videoFile.duration && (
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1">
+            <div className="flex gap-4 items-center text-sm text-muted-foreground">
+              <div className="flex gap-1 items-center">
                 <span>Duration:</span>
                 <span className="text-foreground">{videoFile.duration.toFixed(1)}s</span>
               </div>
               {videoFile.width && videoFile.height && (
-                <div className="flex items-center gap-1">
+                <div className="flex gap-1 items-center">
                   <span>Resolution:</span>
                   <span className="text-foreground">{videoFile.width}×{videoFile.height}</span>
                 </div>
@@ -97,8 +97,8 @@ export function VideoUpload({ onFileSelect, onFileRemove, videoFile, disabled }:
 
   return (
     <Card
-      className={`transition-all duration-300 ${
-        isDragOver ? 'ring-2 ring-primary scale-105' : ''
+      className={`bg-slate-50 dark:bg-slate-900 shadow-none border-dashed transition-all duration-300 ${
+        isDragOver ? 'ring-2 scale-105 ring-primary' : ''
       } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
@@ -106,15 +106,15 @@ export function VideoUpload({ onFileSelect, onFileRemove, videoFile, disabled }:
     >
       <CardContent className="p-8">
         <div className="text-center">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
+          <div className="flex justify-center items-center mx-auto mb-4 w-20 h-20 rounded-full bg-primary/20">
             <Upload className="w-10 h-10 text-primary" />
           </div>
 
-          <h3 className="text-xl font-semibold text-foreground mb-2">
+          <h3 className="mb-2 text-xl font-semibold text-foreground">
             Drop your video here
           </h3>
 
-          <p className="text-muted-foreground mb-6">
+          <p className="mb-6 text-muted-foreground">
             or click to browse files
           </p>
 
@@ -127,9 +127,9 @@ export function VideoUpload({ onFileSelect, onFileRemove, videoFile, disabled }:
             id="video-upload"
           />
 
-          <Button asChild disabled={disabled}>
+          <Button size="lg" asChild disabled={disabled}>
             <label htmlFor="video-upload" className="cursor-pointer">
-              <FileText className="w-4 h-4 mr-2" />
+              <FileText className="mr-2 w-4 h-4" />
               Choose Video File
             </label>
           </Button>

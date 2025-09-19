@@ -96,13 +96,13 @@ export function VideoPlayer({ videoFile, onOptionsChange, disabled }: VideoPlaye
   };
 
   return (
-    <div className="space-y-4">
+    <>
       {/* Video Container */}
-      <div className="relative rounded-xl overflow-hidden bg-black">
+      <div className="overflow-hidden relative bg-black rounded-xl">
         <video
           ref={videoRef}
           src={videoFile.url}
-          className="w-full h-auto max-h-96 object-contain"
+          className="object-contain w-full h-auto max-h-96"
           onClick={togglePlay}
           autoPlay
           muted
@@ -110,13 +110,13 @@ export function VideoPlayer({ videoFile, onOptionsChange, disabled }: VideoPlaye
         />
         
         {/* Video Controls Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-          <div className="flex items-center gap-4">
+        <div className="absolute right-0 bottom-0 left-0 p-4 bg-gradient-to-t to-transparent from-black/80">
+          <div className="flex gap-4 items-center">
             {/* Play/Pause Button */}
             <button
               onClick={togglePlay}
               className={`p-2 rounded-full transition-colors ${
-                disabled ? 'bg-white/10 cursor-not-allowed' : 'bg-white/20 hover:bg-white/30'
+                disabled ? 'cursor-not-allowed bg-white/10' : 'bg-white/20 hover:bg-white/30'
               }`}
               disabled={disabled}
             >
@@ -128,7 +128,7 @@ export function VideoPlayer({ videoFile, onOptionsChange, disabled }: VideoPlaye
             </button>
 
             {/* Progress Bar */}
-            <div className="flex-1 flex items-center gap-2">
+            <div className="flex flex-1 gap-2 items-center">
               <input
                 type="range"
                 min="0"
@@ -136,13 +136,13 @@ export function VideoPlayer({ videoFile, onOptionsChange, disabled }: VideoPlaye
                 step="0.1"
                 value={currentTime}
                 onChange={handleSeek}
-                className="flex-1 h-1 bg-white/20 rounded-full appearance-none cursor-pointer"
+                className="flex-1 h-1 rounded-full appearance-none cursor-pointer bg-white/20"
                 disabled={disabled}
               />
             </div>
 
             {/* Time Display */}
-            <div className="text-white text-sm">
+            <div className="text-sm text-white">
               {formatTime(currentTime)} / {formatTime(duration)}
             </div>
 
@@ -150,7 +150,7 @@ export function VideoPlayer({ videoFile, onOptionsChange, disabled }: VideoPlaye
             <button
               onClick={toggleMute}
               className={`p-2 rounded-full transition-colors ${
-                disabled ? 'bg-white/10 cursor-not-allowed' : 'bg-white/20 hover:bg-white/30'
+                disabled ? 'cursor-not-allowed bg-white/10' : 'bg-white/20 hover:bg-white/30'
               }`}
               disabled={disabled}
             >
@@ -165,27 +165,27 @@ export function VideoPlayer({ videoFile, onOptionsChange, disabled }: VideoPlaye
       </div>
 
       {/* Video Info */}
-      <div className="grid grid-cols-2 gap-4 text-sm">
-          <div className="flex items-center gap-2">
+      <div className="grid grid-cols-2 gap-y-2 gap-x-4 mt-4 text-sm">
+          <div className="flex gap-2 items-center">
             <Monitor className="w-4 h-4 text-muted-foreground" />
-            <span className="text-muted-foreground">Resolution:</span>
+            <span className="text-muted-foreground">Res:</span>
             <span className="text-foreground">
               {videoDimensions ? `${videoDimensions.width}×${videoDimensions.height}` : 'Unknown'}
             </span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex gap-2 items-center">
             <Clock className="w-4 h-4 text-muted-foreground" />
             <span className="text-muted-foreground">Duration:</span>
             <span className="text-foreground">
               {duration ? `${duration.toFixed(1)}s` : 'Unknown'}
             </span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex gap-2 items-center">
             <FileText className="w-4 h-4 text-muted-foreground" />
             <span className="text-muted-foreground">Format:</span>
             <span className="text-foreground">{videoFile.type}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex gap-2 items-center">
             <HardDrive className="w-4 h-4 text-muted-foreground" />
             <span className="text-muted-foreground">Size:</span>
             <span className="text-foreground">
@@ -193,6 +193,6 @@ export function VideoPlayer({ videoFile, onOptionsChange, disabled }: VideoPlaye
             </span>
           </div>
         </div>
-    </div>
+    </>
   );
 }

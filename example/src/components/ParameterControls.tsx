@@ -10,7 +10,7 @@ interface ParameterControlsProps {
 
 export function ParameterControls({ onOptionsChange, disabled }: ParameterControlsProps) {
   const [fps, setFps] = useState(10);
-  const [scale, setScale] = useState(0); // Default to Original
+  const [scale, setScale] = useState(1280); // Default to Original
 
   const fpsPresets = [4, 8, 10, 12, 16, 20, 24, 30];
   const scalePresets = [
@@ -54,9 +54,9 @@ export function ParameterControls({ onOptionsChange, disabled }: ParameterContro
           <Button
             onClick={() => {
               handleFpsChange(10);
-              handleScaleChange(854);
+              handleScaleChange(1280);
             }}
-            variant={fps === 10 && scale === 854 ? "default" : "outline"}
+            variant={fps === 10 && scale === 1280 ? "default" : "outline"}
             size="sm"
             disabled={disabled}
           >
@@ -89,8 +89,8 @@ export function ParameterControls({ onOptionsChange, disabled }: ParameterContro
 
       {/* FPS Control */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 text-sm font-medium text-foreground">
+        <div className="flex justify-between items-center">
+          <label className="flex gap-2 items-center text-sm font-medium text-foreground">
             <Zap className="w-4 h-4" />
             Frames Per Second (FPS)
           </label>
@@ -115,8 +115,8 @@ export function ParameterControls({ onOptionsChange, disabled }: ParameterContro
 
       {/* Scale Control */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 text-sm font-medium text-foreground">
+        <div className="flex justify-between items-center">
+          <label className="flex gap-2 items-center text-sm font-medium text-foreground">
             <Image className="w-4 h-4" />
             Output Width
           </label>
