@@ -3,24 +3,24 @@
  */
 
 import { FFmpeg } from '@ffmpeg/ffmpeg';
-import { 
-  Video2GifOptions, 
-  FFmpegConfig, 
-  VideoInfo, 
+import {
+  Video2GifOptions,
+  FFmpegConfig,
+  VideoInfo,
   ConversionProgress,
   ConversionResult,
   DEFAULTS,
   Video2GifError,
-  Video2GifErrorType 
-} from './types.js';
-import { FFmpegLoader, FFmpegUtils } from './ffmpeg-loader.js';
-import { ParameterValidator } from './validator.js';
-import { 
-  ConversionError, 
-  TimeoutError, 
+  Video2GifErrorType
+} from './types';
+import { FFmpegLoader, FFmpegUtils } from './ffmpeg-loader';
+import { ParameterValidator } from './validator';
+import {
+  ConversionError,
+  TimeoutError,
   CancelledError,
-  ErrorUtils 
-} from './errors.js';
+  ErrorUtils
+} from './errors';
 
 /**
  * Video converter with progress tracking and error handling
@@ -129,7 +129,7 @@ export class VideoConverter {
     videoFile: File | Blob | ArrayBuffer,
     options: Video2GifOptions,
     videoInfo: VideoInfo,
-    config: FFmpegConfig
+    _config: FFmpegConfig // eslint-disable-line no-unused-vars
   ): Promise<Blob> {
     if (!this.ffmpeg) {
       throw new ConversionError('FFmpeg not loaded');
@@ -169,10 +169,12 @@ export class VideoConverter {
       // Read output file
       const outputData = await this.ffmpeg.readFile(outputFilename);
       let gifBlob: Blob;
-      
+
       // Convert to Blob - handle different return types
       if (outputData instanceof Uint8Array) {
-        gifBlob = new Blob([outputData], { type: 'image/gif' });
+        // Create a new Uint8Array to ensure we have a regular ArrayBuffer
+        const regularUint8Array = new Uint8Array(outputData);
+        gifBlob = new Blob([regularUint8Array], { type: 'image/gif' });
       } else if (typeof outputData === 'string') {
         // If it's a string, we need to convert it properly
         throw new ConversionError('Unexpected string output from FFmpeg');

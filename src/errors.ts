@@ -9,9 +9,9 @@ import { Video2GifErrorType } from './types.js';
  */
 export class Video2GifError extends Error {
   constructor(
-    public type: Video2GifErrorType,
+    public type: Video2GifErrorType, // eslint-disable-line no-unused-vars
     message: string,
-    public details?: any
+    public details?: any // eslint-disable-line no-unused-vars
   ) {
     super(message);
     this.name = 'Video2GifError';

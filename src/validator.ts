@@ -2,15 +2,15 @@
  * Parameter validation system for video2gif library
  */
 
-import { 
-  Video2GifOptions, 
-  Video2GifError, 
+import {
+  Video2GifOptions,
+  Video2GifError,
   Video2GifErrorType,
   VideoInfo,
   SUPPORTED_FORMATS,
-  SupportedFormat 
-} from './types.js';
-import { ErrorUtils } from './errors.js';
+  SupportedFormat
+} from './types';
+import { ErrorUtils } from './errors';
 
 /**
  * Parameter validation utilities
@@ -129,7 +129,7 @@ export class ParameterValidator {
   /**
    * Validate onProgress callback
    */
-  private static validateOnProgress(onProgress: (progress: number) => void): void {
+  private static validateOnProgress(onProgress: (progress: number) => void): void { // eslint-disable-line no-unused-vars
     if (typeof onProgress !== 'function') {
       throw ErrorUtils.invalidParameter('onProgress', onProgress, 'function');
     }

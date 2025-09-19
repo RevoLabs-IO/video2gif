@@ -35,7 +35,7 @@ export interface Video2GifOptions {
    * Progress callback function (0-100)
    * Called periodically during conversion with progress percentage
    */
-  onProgress?: (progress: number) => void;
+  onProgress?: (progress: number) => void; // eslint-disable-line no-unused-vars
 }
 
 /**
@@ -138,40 +138,42 @@ export interface VideoInfo {
 /**
  * Error types for video2gif operations
  */
+/* eslint-disable no-unused-vars */
 export enum Video2GifErrorType {
   /** Invalid input parameters */
   INVALID_PARAMETERS = 'INVALID_PARAMETERS',
-  
+
   /** Unsupported video format */
   UNSUPPORTED_FORMAT = 'UNSUPPORTED_FORMAT',
-  
+
   /** FFmpeg WASM failed to load */
   FFMPEG_LOAD_FAILED = 'FFMPEG_LOAD_FAILED',
-  
+
   /** Video conversion failed */
   CONVERSION_FAILED = 'CONVERSION_FAILED',
-  
+
   /** Memory limit exceeded */
   MEMORY_LIMIT_EXCEEDED = 'MEMORY_LIMIT_EXCEEDED',
-  
+
   /** Operation timed out */
   TIMEOUT_EXCEEDED = 'TIMEOUT_EXCEEDED',
-  
+
   /** Operation was cancelled */
   CANCELLED = 'CANCELLED',
-  
+
   /** Unknown error */
   UNKNOWN = 'UNKNOWN'
 }
+/* eslint-enable no-unused-vars */
 
 /**
  * Custom error class for video2gif operations
  */
 export class Video2GifError extends Error {
   constructor(
-    public type: Video2GifErrorType,
+    public type: Video2GifErrorType, // eslint-disable-line no-unused-vars
     message: string,
-    public details?: any
+    public details?: any // eslint-disable-line no-unused-vars
   ) {
     super(message);
     this.name = 'Video2GifError';
