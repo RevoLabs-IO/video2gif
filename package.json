@@ -1,6 +1,6 @@
 {
   "name": "video2gif",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert videos to GIFs using FFmpeg WASM with a modern, developer-friendly API",
   "keywords": [
     "video",
