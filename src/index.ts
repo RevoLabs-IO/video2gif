@@ -25,6 +25,9 @@
  * ```
  */
 
+import { getBrowserCapabilities, isMultiThreadSupported } from './ffmpeg-loader.js';
+import { BrowserCapabilities } from './types.js';
+
 // Core function exports
 export { convertVideoToGif } from './converter.js';
 export { 
@@ -61,11 +64,11 @@ export {
 } from './errors.js';
 
 // Utility exports
-export { 
-  FFmpegLoader, 
-  FFmpegUtils, 
-  getBrowserCapabilities, 
-  isMultiThreadSupported 
+export {
+  FFmpegLoader,
+  FFmpegUtils,
+  getBrowserCapabilities,
+  isMultiThreadSupported
 } from './ffmpeg-loader.js';
 
 export { 
@@ -110,8 +113,6 @@ export async function video2gif(
  * @returns true if multi-threading is supported
  */
 export function supportsMultiThreading(): boolean {
-  // eslint-disable-next-line no-undef
-  const { isMultiThreadSupported } = require('./ffmpeg-loader.js');
   return isMultiThreadSupported();
 }
 
@@ -120,9 +121,7 @@ export function supportsMultiThreading(): boolean {
  * 
  * @returns Browser capabilities object
  */
-export function getCapabilities(): import('./types.js').BrowserCapabilities {
-  // eslint-disable-next-line no-undef
-  const { getBrowserCapabilities } = require('./ffmpeg-loader.js');
+export function getCapabilities(): BrowserCapabilities {
   return getBrowserCapabilities();
 }
 
