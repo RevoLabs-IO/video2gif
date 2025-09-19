@@ -75,14 +75,6 @@
     "**/*.test.tsx",
     "example/**/*"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "coverage",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "example/src/components/ui/**/*"
-  ],
   "references": [
     { "path": "./tsconfig.node.json" }
   ]
