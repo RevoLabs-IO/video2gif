@@ -20,6 +20,20 @@
 - 📱 **Mobile Friendly** - Responsive design with touch support
 - ♿ **Accessible** - WCAG 2.1 AA compliant with keyboard navigation
 
+## 📸 Screenshots
+
+### Main Interface
+![Video2GIF Main Screen](screenshots/main-screen.png)
+*The main interface showing video upload area and conversion controls*
+
+### Conversion in Progress
+![Video2GIF Converting](screenshots/converting.png)
+*Real-time conversion progress with timeline controls and parameter adjustments*
+
+### Conversion Complete
+![Video2GIF Completed](screenshots/completed.png)
+*Completed conversion showing the generated GIF with download options*
+
 ## 🚀 Quick Start
 
 ### Try the Demo
