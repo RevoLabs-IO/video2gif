@@ -298,6 +298,10 @@ video2gif/
 └── dist/                # Build output
 ```
 
+## 📋 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a complete history of changes and releases.
+
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
