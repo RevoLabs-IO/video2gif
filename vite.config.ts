@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
       // Library build configuration
       lib: {
         entry: resolve(__dirname, 'src/index.ts'),
-        name: 'Video2Gif',
+        name: 'Video2GIF',
         formats: ['es', 'umd'],
         fileName: (format) => `index.${format === 'es' ? 'js' : format === 'umd' ? 'global.js' : 'js'}`
       },

@@ -1,4 +1,4 @@
-# Video2Gif NPM Package - Implementation Plan
+# Video2GIF NPM Package - Implementation Plan
 
 ## Project Overview
 Create a stylish and efficient NPM package that converts videos to GIFs using FFmpeg WASM with a modern, developer-friendly API and interactive demo page.

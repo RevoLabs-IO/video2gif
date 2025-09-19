@@ -1,4 +1,4 @@
-# Video2Gif Technical Specification
+# Video2GIF Technical Specification
 
 ## Core Architecture
 

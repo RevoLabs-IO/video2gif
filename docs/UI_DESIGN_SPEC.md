@@ -1,4 +1,4 @@
-# Video2Gif Demo Page - UI/UX Design Specification
+# Video2GIF Demo Page - UI/UX Design Specification
 
 ## Design Philosophy
 - **Modern & Minimalist**: Clean, uncluttered interface

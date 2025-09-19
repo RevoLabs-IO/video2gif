@@ -1,4 +1,4 @@
-# Video2Gif Implementation Summary
+# Video2GIF Implementation Summary
 
 ## Project Overview
 This document summarizes the complete implementation plan for creating a stylish and efficient NPM package that converts videos to GIFs using FFmpeg WASM.
