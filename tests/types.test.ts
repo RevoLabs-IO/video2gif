@@ -10,8 +10,8 @@ import {
   Presets,
   DEFAULTS,
   SUPPORTED_FORMATS
-} from '../src/types.js';
-import { Video2GifError as Video2GifErrorClass } from '../src/errors.js';
+} from '../src/types';
+import { Video2GifError as Video2GifErrorClass } from '../src/errors';
 
 describe('Type Definitions', () => {
   it('should have valid preset configurations', () => {

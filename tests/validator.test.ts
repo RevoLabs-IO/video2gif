@@ -3,9 +3,10 @@
  */
 
 import { describe, it, expect, vi } from 'vitest';
-import { ParameterValidator, validateBatch } from '../src/validator.js';
-import { Video2GifError, Video2GifErrorType } from '../src/types.js';
-import { createMockVideoFile, createMockVideoElement } from './setup.js';
+import { ParameterValidator, validateBatch } from '../src/validator';
+import { Video2GifError, Video2GifErrorType } from '../src/types';
+import { ValidationError, FormatError } from '../src/errors';
+import { createMockVideoFile, createMockVideoElement } from './setup';
 
 describe('ParameterValidator', () => {
   describe('validateOptions', () => {
@@ -29,10 +30,10 @@ describe('ParameterValidator', () => {
         startTime: -1,
         duration: 5
       };
-      
+
       expect(() => {
         ParameterValidator.validateOptions(videoFile, options);
-      }).toThrow(Video2GifError);
+      }).toThrow(ValidationError);
     });
 
     it('should throw error for zero duration', () => {
@@ -41,10 +42,10 @@ describe('ParameterValidator', () => {
         startTime: 0,
         duration: 0
       };
-      
+
       expect(() => {
         ParameterValidator.validateOptions(videoFile, options);
-      }).toThrow(Video2GifError);
+      }).toThrow(ValidationError);
     });
 
     it('should throw error for invalid fps', () => {
@@ -54,10 +55,10 @@ describe('ParameterValidator', () => {
         duration: 5,
         fps: 35
       };
-      
+
       expect(() => {
         ParameterValidator.validateOptions(videoFile, options);
-      }).toThrow(Video2GifError);
+      }).toThrow(ValidationError);
     });
 
     it('should throw error for invalid scale', () => {
@@ -67,10 +68,10 @@ describe('ParameterValidator', () => {
         duration: 5,
         scale: -100
       };
-      
+
       expect(() => {
         ParameterValidator.validateOptions(videoFile, options);
-      }).toThrow(Video2GifError);
+      }).toThrow(ValidationError);
     });
 
     it('should throw error for non-integer scale', () => {
@@ -80,10 +81,10 @@ describe('ParameterValidator', () => {
         duration: 5,
         scale: 480.5
       };
-      
+
       expect(() => {
         ParameterValidator.validateOptions(videoFile, options);
-      }).toThrow(Video2GifError);
+      }).toThrow(ValidationError);
     });
 
     it('should throw error for invalid onProgress', () => {
@@ -93,10 +94,10 @@ describe('ParameterValidator', () => {
         duration: 5,
         onProgress: 'not a function' as any
       };
-      
+
       expect(() => {
         ParameterValidator.validateOptions(videoFile, options);
-      }).toThrow(Video2GifError);
+      }).toThrow(ValidationError);
     });
 
     it('should throw error for missing video file', () => {
@@ -219,10 +220,10 @@ describe('ParameterValidator', () => {
 
     it('should reject unsupported video formats', () => {
       const unsupportedFile = createMockVideoFile(1024 * 1024, 'video/unsupported', 'test.unsupported');
-      
+
       expect(() => {
         ParameterValidator.validateVideoFormat(unsupportedFile);
-      }).toThrow(Video2GifError);
+      }).toThrow(FormatError);
     });
   });
 
@@ -288,10 +289,10 @@ describe('validateBatch', () => {
     const options = {
       startTime: 0,
       duration: 5,
-      fps: 15,
-      scale: 640
+      fps: 25, // High FPS to trigger warning
+      scale: 1920 // High resolution to trigger warning
     };
-    
+
     // Mock video info
     const videoInfo = {
       duration: 10,
@@ -299,12 +300,12 @@ describe('validateBatch', () => {
       height: 1080,
       size: 1024 * 1024
     };
-    
+
     const result = validateBatch(videoFile, options, videoInfo);
-    
+
     expect(result.valid).toBe(true);
     expect(result.errors).toHaveLength(0);
-    expect(result.warnings.length).toBeGreaterThan(0); // Should have warnings for high FPS
+    expect(result.warnings.length).toBeGreaterThan(0); // Should have warnings for high FPS and resolution
   });
 
   it('should detect invalid parameters', async () => {
