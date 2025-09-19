@@ -8,8 +8,8 @@
 ```typescript
 // Main conversion options
 interface Video2GifOptions {
-  startTime: number;        // Start time in seconds (0.1 precision)
-  duration: number;         // Duration in seconds (0.1 precision)
+  startTime: number;        // Start time in seconds (1 precision)
+  duration: number;         // Duration in seconds (1 precision)
   fps?: number;            // Frames per second (1-30, default: 10)
   scale?: number;          // Output width in pixels (height auto-calculated)
   onProgress?: (progress: number) => void; // Progress callback (0-100)
